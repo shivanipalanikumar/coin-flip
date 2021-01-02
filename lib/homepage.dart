@@ -12,6 +12,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _isloading = false;
   String display = "";
+  String headurl='https://pixabay.com/vectors/money-washington-winking-president-33185/';
+  String tailurl='https://cdn.pixabay.com/photo/2013/07/12/14/27/franc-148229_960_720.png';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 child: Text(_isloading ? 'Loading...' : display),
               ),
+              
               FloatingActionButton(
                 onPressed: () async {
                   setState(() {
