@@ -12,8 +12,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _isloading = false;
   String display = "";
-  String headurl='https://pixabay.com/vectors/money-washington-winking-president-33185/';
-  String tailurl='https://cdn.pixabay.com/photo/2013/07/12/14/27/franc-148229_960_720.png';
+  String headurl =
+      'https://cdn.pixabay.com/photo/2013/07/12/14/27/bronze-148228_960_720.png';
+  String tailurl =
+      'https://cdn.pixabay.com/photo/2013/07/12/14/27/franc-148229_960_720.png';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +23,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Container(
                 child: Image(
@@ -30,13 +33,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   //   image: _image == null ? AssetImage('assets/images/avatar.jpg') : Image.file(_image),),
                   image: NetworkImage(
                       'https://media.istockphoto.com/photos/coin-toss-picture-id460171067?b=1&k=6&m=460171067&s=170667a&w=0&h=BbQ-YdeoOvEayM_QhF3qKuPK1xCm9i_xd-4Ionx4WB4='),
-                  fit: BoxFit.cover,
+                  //fit: BoxFit.cover,
                 ),
               ),
               Container(
                 child: Text(_isloading ? 'Loading...' : display),
               ),
-              
+              display==""? Container(): Container(
+                child: Image.asset( display == "Tails" ? "assets/images/tails.png" : "assets/images/heads.png"
+                ),
+              ),
               FloatingActionButton(
                 onPressed: () async {
                   setState(() {
@@ -52,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-        
+        ),
       ),
     );
   }
